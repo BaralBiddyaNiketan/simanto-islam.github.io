@@ -46,9 +46,26 @@ gdjs.Untitled_32sceneCode.mapOfGDgdjs_9546Untitled_959532sceneCode_9546GDEnamyOb
 gdjs.Untitled_32sceneCode.mapOfGDgdjs_9546Untitled_959532sceneCode_9546GDspornpointObjects1Objects = Hashtable.newFrom({"spornpoint": gdjs.Untitled_32sceneCode.GDspornpointObjects1});
 gdjs.Untitled_32sceneCode.mapOfGDgdjs_9546Untitled_959532sceneCode_9546GDEnamyObjects1Objects = Hashtable.newFrom({"Enamy": gdjs.Untitled_32sceneCode.GDEnamyObjects1});
 gdjs.Untitled_32sceneCode.mapOfGDgdjs_9546Untitled_959532sceneCode_9546GDWallobjectObjects1Objects = Hashtable.newFrom({"Wallobject": gdjs.Untitled_32sceneCode.GDWallobjectObjects1});
-gdjs.Untitled_32sceneCode.eventsList3 = function(runtimeScene) {
 
-};gdjs.Untitled_32sceneCode.eventsList4 = function(runtimeScene) {
+gdjs.Untitled_32sceneCode.eventsList3 = function(runtimeScene) {
+  if (gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left")) {
+    gdjs.copyArray(runtimeScene.getObjects("gan"), gdjs.Untitled_32sceneCode.GDganObjects1);
+    for (var i = 0, len = gdjs.Untitled_32sceneCode.GDganObjects1.length; i < len; ++i) {
+      var ganObj = gdjs.Untitled_32sceneCode.GDganObjects1[i];
+      if (ganObj.getBehavior("FireBullet")) {
+        ganObj.getBehavior("FireBullet").Fire(
+          ganObj.getX(),
+          ganObj.getY(),
+          gdjs.Untitled_32sceneCode.mapOfGDgdjs_9546Untitled_959532sceneCode_9546GDBulletObjects1Objects,
+          ganObj.getAngle(),
+          600,
+          null
+        );
+      }
+    }
+  }
+};
+gdjs.Untitled_32sceneCode.eventsList4 = function(runtimeScene) {
 
 {
 
